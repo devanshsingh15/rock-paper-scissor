@@ -1,7 +1,7 @@
 let score=JSON.parse(localStorage.getItem('score')) || {
-  Wins: 0,  
-  Losses: 0,
-  Ties: 0
+  win: 0,  
+  loss: 0,
+  tie: 0
 };
 
 /*if(score===null){
@@ -20,7 +20,7 @@ function playGame(playerMove){
 
   if(playerMove==='rock'){
     if(computerMove==='rock'){
-      result='Tie';
+      result='tie';
     }
     else if(computerMove==='paper'){
       result='You lose';
@@ -34,7 +34,7 @@ function playGame(playerMove){
       result='You win';
     }
     else if(computerMove==='paper'){
-      result='Tie';
+      result='tie';
     }
     else {
       result='You lose';
@@ -42,19 +42,19 @@ function playGame(playerMove){
   }
   else {
     if(computerMove==='rock'){
-      result='You Lose';
+      result='You lose';
     }
     else if(computerMove==='paper'){
-      result='You Win';
+      result='You win';
     }
     else {
-      result='Tie';
+      result='tie';
     }
   }
 
-  if(result==='You Win') score.Wins++;
-  else if(result==='You Lose') score.Losses++;
-  else score.Ties++;
+  if(result==='You win') score.win++;
+  else if(result==='You lose') score.loss++;
+  else score.tie++;
 
   localStorage.setItem('score',JSON.stringify(score));
 
@@ -69,7 +69,7 @@ function playGame(playerMove){
 }
 
 function updateScoreElement(){
-document.querySelector('.scores').innerHTML= `Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`;
+document.querySelector('.scores').innerHTML= `Wins: ${score.win}, Losses: ${score.loss}, Ties: ${score.tie}`;
 }
 
 function pickComputerMove(){
